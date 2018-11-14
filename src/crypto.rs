@@ -108,9 +108,9 @@ fn verify_rsa(
     let public_key_der = untrusted::Input::from(key);
     let message = untrusted::Input::from(signing_input.as_bytes());
     let expected_signature = untrusted::Input::from(signature_bytes.as_slice());
-
+    println!("We here 1");
     let res = signature::verify(alg, public_key_der, message, expected_signature);
-
+    println!("We here 2");
     Ok(res.is_ok())
 }
 
