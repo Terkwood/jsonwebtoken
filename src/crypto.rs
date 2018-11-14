@@ -135,6 +135,8 @@ pub fn verify(
             Ok(verify_slices_are_equal(signature.as_ref(), signed.as_ref()).is_ok())
         }
         Algorithm::RS256 => {
+            println!("jsonwebtoken\n\tsignature {}\n\tsigning input {}",signature, signing_input);
+            
             verify_rsa(&signature::RSA_PKCS1_2048_8192_SHA256, signature, signing_input, key)
         }
         Algorithm::RS384 => {
