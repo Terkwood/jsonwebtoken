@@ -104,6 +104,7 @@ fn verify_rsa(
     key: &[u8],
 ) -> Result<bool> {
     let signature_bytes = base64::decode_config(signature, base64::URL_SAFE)?;
+    println!("We here 0");
     let public_key_der = untrusted::Input::from(key);
     let message = untrusted::Input::from(signing_input.as_bytes());
     let expected_signature = untrusted::Input::from(signature_bytes.as_slice());
